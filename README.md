@@ -1,3 +1,5 @@
+**PLEASE NOTE: THE TEXT IS COPIED FROM [REACT JS TUTORIAL](https://facebook.github.io/react/docs/tutorial.html) AND MODIFIED TO USE ES6 BY ME. ALL RIGHTS BELONG TO THEM.**
+
 #Tutorial
 We'll be building a simple but realistic comments box that you can drop into a blog, a basic version of the realtime comments offered by Disqus, LiveFyre or Facebook comments.
 
@@ -61,7 +63,7 @@ React is all about modular, composable components. For our comment box example, 
   - CommentForm
 ```
 
-Let's build the CommentBox component, which is just a simple <div>:
+Let's build the CommentBox component, which is just a simple `<div>`:
 
 ```
 // tutorial1.js
