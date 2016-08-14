@@ -109,7 +109,7 @@ Its use is optional but we've found JSX syntax easier to use than plain JavaScri
 ###What's going on
 We pass some methods in a JavaScript object to React.createClass() to create a new React component. The most important of these methods is called render which returns a tree of React components that will eventually render to HTML.
 
-The <div> tags are not actual DOM nodes; they are instantiations of React div components. You can think of these as markers or pieces of data that React knows how to handle. React is safe. We are not generating HTML strings so XSS protection is the default.
+The `<div>` tags are not actual DOM nodes; they are instantiations of React div components. You can think of these as markers or pieces of data that React knows how to handle. React is safe. We are not generating HTML strings so XSS protection is the default.
 
 You do not have to return basic HTML. You can return a tree of components that you (or someone else) built. This is what makes React composable: a key tenet of maintainable frontends.
 
@@ -120,7 +120,7 @@ The ReactDOM module exposes DOM-specific methods, while React has the core tools
 It is important that ReactDOM.render remain at the bottom of the script for this tutorial. ReactDOM.render should only be called after the composite components have been defined.
 
 #Composing components
-Let's build skeletons for CommentList and CommentForm which will, again, be simple <div>s. Add these two components to your file, keeping the existing CommentBox declaration and ReactDOM.render call:
+Let's build skeletons for CommentList and CommentForm which will, again, be simple `<div>`s. Add these two components to your file, keeping the existing CommentBox declaration and ReactDOM.render call:
 
 ```
 // tutorial2.js
@@ -228,7 +228,7 @@ var Comment = React.createClass({
 
 All we're doing here is calling the remarkable library. We need to convert this.props.children from React's wrapped text to a raw string that remarkable will understand so we explicitly call toString().
 
-But there's a problem! Our rendered comments look like this in the browser: "<p>This is <em>another</em> comment</p>". We want those tags to actually render as HTML.
+But there's a problem! Our rendered comments look like this in the browser: "`<p>`This is `<em>`another`</em>` comment`</p>`". We want those tags to actually render as HTML.
 
 That's React protecting you from an XSS attack. There's a way to get around it but the framework warns you not to use it:
 
@@ -463,7 +463,7 @@ var CommentForm = React.createClass({
 ###Controlled components
 With the traditional DOM, input elements are rendered and the browser manages the state (its rendered value). As a result, the state of the actual DOM will differ from that of the component. This is not ideal as the state of the view will differ from that of the component. In React, components should always represent the state of the view and not only at the point of initialization.
 
-Hence, we will be using this.state to save the user's input as it is entered. We define an initial state with two properties author and text and set them to be empty strings. In our <input> elements, we set the value prop to reflect the state of the component and attach onChange handlers to them. These <input> elements with a value set are called controlled components. Read more about controlled components on the Forms article.
+Hence, we will be using this.state to save the user's input as it is entered. We define an initial state with two properties author and text and set them to be empty strings. In our `<input>` elements, we set the value prop to reflect the state of the component and attach onChange handlers to them. These `<input>` elements with a value set are called controlled components. Read more about controlled components on the Forms article.
 
 ```
 // tutorial16.js
@@ -500,7 +500,7 @@ var CommentForm = React.createClass({
 ```
 
 ###Events
-React attaches event handlers to components using a camelCase naming convention. We attach onChange handlers to the two <input> elements. Now, as the user enters text into the <input> fields, the attached onChange callbacks are fired and the state of the component is modified. Subsequently, the rendered value of the input element will be updated to reflect the current component state.
+React attaches event handlers to components using a camelCase naming convention. We attach onChange handlers to the two `<input>` elements. Now, as the user enters text into the `<input>` fields, the attached onChange callbacks are fired and the state of the component is modified. Subsequently, the rendered value of the input element will be updated to reflect the current component state.
 
 (The astute reader may be surprised that these event handlers work as described, given that the method references are not explicitly bound to this. React.createClass(...) automatically binds each method to its component instance, obviating the need for explicit binding.)
 
